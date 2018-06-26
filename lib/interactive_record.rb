@@ -17,8 +17,6 @@ class InteractiveRecord
     column_names.compact
   end
 
-
-
   def initialize(options={})
     options.each do |property, value|
       self.send("#{property}=", value)
@@ -51,5 +49,11 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
     DB[:conn].execute(sql)
   end
+  
+  def self.find_by(x)
+    sql = "SELECT * FROM #{self.table_name} WHERE #{x[key]} = '#{x[value]}'"
+    DB[:conn].execute(sql)
+  end
+    
   
 end
