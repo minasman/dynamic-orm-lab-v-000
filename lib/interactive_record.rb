@@ -54,6 +54,4 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE #{x.to_a[0][0].to_s} = '#{x.to_a[0][1]}'"
     DB[:conn].execute(sql)
   end
-    
-  
 end
